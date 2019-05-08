@@ -1,10 +1,14 @@
 import React from 'react';
 
-export default (utiliserStockageLocal = WrapperComponent => {
+const utiliserStockageLocal = WrapperComponent => {
   class HOC extends React.Component {
-    state = {
-      stockageLocalDisponible: false,
-    };
+    constructor(props) {
+      super(props);
+
+      state = {
+        stockageLocalDisponible: false,
+      };
+    }
 
     componentDidMount() {
       this.verifierDisponibiliteDuStockageLocal();
@@ -22,21 +26,21 @@ export default (utiliserStockageLocal = WrapperComponent => {
       }
     }
 
-    charger = cle => {
+    charger(cle) {
       if (this.state.stockageLocalDisponible) {
         return localStorage.getItem(cle);
       }
 
       return undefined;
-    };
+    }
 
-    sauvegarder = (cle, infos) => {
+    sauvegarder(cle, infos) {
       this.state.stockageLocalDisponible && localStorage.setItem(cle, infos);
-    };
+    }
 
-    supprimer = cle => {
+    supprimer(cle) {
       this.state.stockageLocalDisponible && localStorage.removeItem(cle);
-    };
+    }
 
     render() {
       return (
@@ -54,4 +58,6 @@ export default (utiliserStockageLocal = WrapperComponent => {
   }
 
   return HOC;
-});
+};
+
+export default utiliserStockageLocal;
