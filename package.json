@@ -1,0 +1,23 @@
+{
+  "name": "local-storage-react-hoc",
+  "version": "1.0.0",
+  "description": "A higher-order component for React that enables access to the browser's local storage",
+  "main": "index.js",
+  "scripts": {
+    "build": "./node_modules/.bin/babel src --out-file index.js"
+  },
+  "author": "Shaun Jacobsen",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-react": "^7.0.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.6.3"
+  }
+}
